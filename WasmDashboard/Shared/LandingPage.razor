@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JS
+
+<div class="page">
+    <div class="sidebar">
+        <Sidebar />
+    </div>
+
+    <div class="main">
+        <WasmDashboard.Pages.ListAdmin />
+    </div>
+</div>
+
+@code
+{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Load jQuery when the component is first rendered
+            await JS.InvokeVoidAsync("loadJQueryFunction");
+        }
+    }
+}
