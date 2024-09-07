@@ -79,7 +79,6 @@ function showLoader() {
 function hideLoader() {
 	document.getElementById('overlay').style.display = 'none';  // Hide the overlay
 	document.getElementById('loader').style.display = 'none';    // Hide the loader
-	alert('Loading completed!');
 }
 
 function startProcess(dotnetHelper) {
@@ -88,4 +87,10 @@ function startProcess(dotnetHelper) {
 		// Notify Blazor that the process is completed
 		dotnetHelper.invokeMethodAsync('NotifyProcessCompleted');
 	}, 10000); // Simulate process completion after 10 seconds
+}
+
+function messageAlert() {
+	setTimeout(() => {
+		alert('Loading completed!');
+    },100)
 }

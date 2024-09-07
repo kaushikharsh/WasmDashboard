@@ -145,6 +145,7 @@
         Console.WriteLine("Process completed from JavaScript.");
         // Hide the loader
         await JS.InvokeVoidAsync("hideLoader");
+        await JS.InvokeVoidAsync("messageAlert");
     }
 
     private void UpdateAdmin(int id)
