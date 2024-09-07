@@ -122,7 +122,6 @@
     private async Task ShowDeleteConfirmation(int id)
     {
         adminIdToDelete = id;
-        // Call ShowAsync() to open the modal
         await deleteModal.ShowAsync();
     }
 
@@ -131,7 +130,7 @@
         if (confirmed)
         {
             AdminList.RemoveAll(a => a.Id == adminIdToDelete);
-            // Call JavaScript function and pass a .NET method to be called when the process is completed
+            // Called JavaScript function and pass a .NET method to be called when the process is completed
             await JS.InvokeVoidAsync("startProcess", DotNetObjectReference.Create(this));
         }
         // Close the modal after action
